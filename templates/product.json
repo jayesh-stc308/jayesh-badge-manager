@@ -465,10 +465,18 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
-    }
+      
+    },
+    "return_exchange_policy": {
+  "type": "return-exchange-policy",
+  "settings": {
+    "heading": "Return & Exchange Policy"
+  }
+}
   },
   "order": [
     "main",
-    "product_recommendations_qggXJq"
+    "product_recommendations_qggXJq",
+    "return_exchange_policy"
   ]
 }

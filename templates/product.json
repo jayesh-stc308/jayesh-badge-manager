@@ -476,7 +476,8 @@
   },
   "order": [
     "main",
-    "product_recommendations_qggXJq",
-    "return_exchange_policy"
+    "return_exchange_policy",
+    "product_recommendations_qggXJq"
+    
   ]
 }

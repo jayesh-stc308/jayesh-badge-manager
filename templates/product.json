@@ -472,10 +472,20 @@
   "settings": {
     "heading": "Return & Exchange Policy"
   }
+},
+"product_highlights_warranty": {
+  "type": "product-highlights-warranty",
+  "settings": {
+    "highlights_heading": "Product Highlights",
+    "highlights_subheading": "What makes this product special",
+    "warranty_heading": "Warranty Information",
+    "warranty_subheading": "Coverage and warranty details"
+  }
 }
   },
   "order": [
     "main",
+    "product_highlights_warranty",
     "return_exchange_policy",
     "product_recommendations_qggXJq"
     

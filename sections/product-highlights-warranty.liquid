@@ -1,0 +1,288 @@
+{% liquid
+  assign highlights = product.metafields.custom.product_highlights.value
+  assign warranty = product.metafields.custom.warranty_details.value
+%}
+
+{% if highlights != blank or warranty != blank %}
+  <section
+    id="product-highlights-warranty-{{ section.id }}"
+    class="product-highlights-warranty"
+  >
+    <div class="phw-container">
+      {% if highlights != blank %}
+        <div class="phw-highlights">
+          <div class="phw-heading">
+            <span class="phw-heading-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3Z"/>
+                <path d="m19 14 1.2 2.8L23 18l-2.8 1.2L19 22l-1.2-2.8L15 18l2.8-1.2L19 14Z"/>
+              </svg>
+            </span>
+
+            <div>
+              <h2 class="phw-title">
+                {{ section.settings.highlights_heading | escape }}
+              </h2>
+              <p class="phw-subtitle">
+                {{ section.settings.highlights_subheading | escape }}
+              </p>
+            </div>
+          </div>
+
+          <ul class="phw-highlights-list">
+            {% for highlight in highlights %}
+              {% if highlight != blank %}
+                <li class="phw-highlight-item">
+                  <span class="phw-check-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m5 12 4 4L19 6"/>
+                    </svg>
+                  </span>
+                  <span>{{ highlight | escape }}</span>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if warranty != blank %}
+        <div class="phw-warranty">
+          <div class="phw-heading">
+            <span class="phw-heading-icon phw-warranty-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </span>
+
+            <div>
+              <h2 class="phw-title">
+                {{ section.settings.warranty_heading | escape }}
+              </h2>
+              <p class="phw-subtitle">
+                {{ section.settings.warranty_subheading | escape }}
+              </p>
+            </div>
+          </div>
+
+          <div class="phw-warranty-content">
+            {{ warranty | escape | newline_to_br }}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
+
+{% stylesheet %}
+  .product-highlights-warranty {
+    margin-block: 28px;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid #e9e9e9;
+    border-radius: 14px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.035);
+  }
+
+  .phw-container {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .phw-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .phw-heading-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    color: #386baf;
+    background: #eaf1fc;
+    border-radius: 11px;
+  }
+
+  .phw-warranty-icon {
+    color: #287b53;
+    background: #e9f5ed;
+  }
+
+  .phw-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 650;
+    line-height: 1.35;
+    color: #242424;
+  }
+
+  .phw-subtitle {
+    margin: 4px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #777;
+  }
+
+  .phw-highlights-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .phw-highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 15px;
+    color: #383838;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 9px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .phw-check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 23px;
+    height: 23px;
+    color: #287b53;
+    background: #e9f5ed;
+    border-radius: 50%;
+  }
+
+  .phw-warranty {
+    padding-top: 24px;
+    border-top: 1px solid #ededed;
+  }
+
+  .phw-warranty-content {
+    padding: 17px 19px;
+    color: #555;
+    background: #f8faf8;
+    border: 1px solid #e7eee8;
+    border-radius: 9px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-highlights-warranty {
+      padding: 20px;
+      margin-block: 22px;
+    }
+
+    .phw-highlights-list {
+      grid-template-columns: 1fr;
+      gap: 9px;
+    }
+
+    .phw-title {
+      font-size: 18px;
+    }
+
+    .phw-container {
+      gap: 22px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .product-highlights-warranty {
+      padding: 15px;
+    }
+
+    .phw-heading {
+      gap: 10px;
+    }
+
+    .phw-heading-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Product Highlights",
+  "tag": "section",
+  "class": "product-highlights-warranty-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "highlights_heading",
+      "label": "Highlights heading",
+      "default": "Product Highlights"
+    },
+    {
+      "type": "text",
+      "id": "highlights_subheading",
+      "label": "Highlights description",
+      "default": "What makes this product special"
+    },
+    {
+      "type": "text",
+      "id": "warranty_heading",
+      "label": "Warranty heading",
+      "default": "Warranty Information"
+    },
+    {
+      "type": "text",
+      "id": "warranty_subheading",
+      "label": "Warranty description",
+      "default": "Coverage and warranty details"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Highlights"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product"]
+  }
+}
+{% endschema %}

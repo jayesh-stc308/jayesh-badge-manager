@@ -199,8 +199,8 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "jayesh_product_badge_app_product_badge_taQfnM": {
-              "type": "shopify://apps/jayesh-product-badge-app/blocks/product_badge/01a216f8-042c-7b4f-8993-80d70cc4a766",
+            "jayesh_product_badge_app_product_badge_Qk6TLc": {
+              "type": "shopify://apps/jayesh-product-badge-app/blocks/product_badge/01a21cb5-fdd9-772d-9a4e-f71c34532384",
               "settings": {
                 "product": "{{closest.product}}"
               }
@@ -272,7 +272,7 @@
             }
           },
           "block_order": [
-            "jayesh_product_badge_app_product_badge_taQfnM",
+            "jayesh_product_badge_app_product_badge_Qk6TLc",
             "product_card_gallery_677WP3",
             "product_title_YXxMTj",
             "price_JQzVV4"
